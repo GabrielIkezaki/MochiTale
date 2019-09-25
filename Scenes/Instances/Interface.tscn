@@ -20,13 +20,12 @@ margin_bottom = 640.0
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_right = 1040.0
 
-[node name="OuterJoystick" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-
-[node name="OuterJoystickSprite" type="Sprite" parent="CanvasLayer/VBoxContainer/HBoxContainer/OuterJoystick"]
-position = Vector2( 37.8024, 37.1212 )
+[node name="OuterJoystickSprite" type="Sprite" parent="CanvasLayer/VBoxContainer"]
+position = Vector2( 116.184, 495.352 )
+scale = Vector2( 3.57, 3.31 )
 texture = ExtResource( 1 )
 
-[node name="InnerJoystick" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer/HBoxContainer/OuterJoystick/OuterJoystickSprite"]
+[node name="InnerJoystick" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer/OuterJoystickSprite"]
 position = Vector2( -34.3495, -38.5738 )
 scale = Vector2( 0.93, 1.03 )
 normal = ExtResource( 2 )
