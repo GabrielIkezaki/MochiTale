@@ -7,6 +7,9 @@ var initialPos = Vector2(0,0)
 
 signal walkRight
 signal walkLeft
+signal stopWalk
+signal crouch
+signal stand
 
 var parentPos = Vector2(0,0)
 
@@ -23,7 +26,11 @@ func _ready():
 	
 	self.connect("walkLeft", player, "_on_walk_Left")
 	
-
+	self.connect("stopWalk", player, "_on_walk_Stop")
+	
+	self.connect("crouch", player, "_on_Crouch")
+	
+	self.connect("stand", player, "_on_Stand")
 func _process(delta):
 	
 	
@@ -31,14 +38,20 @@ func _process(delta):
 		var pos_difference = (Vector2(0,0) - radius) - position
 		position += pos_difference
 	
-	if get_button_pos().x > initialPos.x:
+	if get_button_pos().x > initialPos.x + 7:
 		emit_signal("walkRight")
 		#print("right")
-	elif get_button_pos().x < initialPos.x:
+	elif get_button_pos().x < initialPos.x - 7 :
 		#print("left")
 		emit_signal("walkLeft")
-		
-		
+	elif get_button_pos().x < initialPos.x + 7 && get_button_pos().x > initialPos.x - 7 :
+		emit_signal("stopWalk")
+	
+	if get_button_pos().y > initialPos.y + 20:
+		emit_signal("crouch")
+	else:
+		emit_signal("stand")
+	
 
 
 #Returns Joystick position + the radius, which will be used to cetnralize 
