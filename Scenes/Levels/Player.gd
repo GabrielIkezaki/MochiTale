@@ -29,17 +29,23 @@ func _physics_process(delta):
 
 func movement():
 	
-	motion.y += gravity
+	motion.y += gravity	
 	
 	if crouching:
-		motion.x = motion.x/2
-	
+		$CollisionShape2D
 	
 	if !stopMove:
 		if goRight:
-			motion.x = speed
+			if crouching:
+				motion.x = speed/3
+			else:
+				motion.x = speed
 		elif goLeft:
-			motion.x = -speed
+			
+			if crouching:
+				motion.x = -speed/3
+			else:
+				motion.x = -speed
 	else:
 		motion.x = 0
 	motion = move_and_slide(motion, UP) 
