@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Scenes/Levels/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/MochiSprites10.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Mochi/MochiSprites02.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mochi/MochiSprites02.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Instances/Interface.tscn" type="PackedScene" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
 
@@ -22,29 +22,29 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Bite",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Duck",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Bite",
 "speed": 5.0
 } ]
 

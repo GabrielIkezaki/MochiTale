@@ -9,12 +9,13 @@ var goRight = false
 var goLeft = false 
 var stopMove = false
 var crouching = false 
-
+var canJump = true
 
 const hboxScale = Vector2(1,1)
 const gravity = 10 
 const UP = Vector2(0, -1)
 const speed = 500
+const jumpSpeed = -400
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +34,8 @@ func movement():
 	
 	if crouching:
 		$CollisionShape2D
+	if is_on_floor():
+		canJump = true 
 	
 	if !stopMove:
 		if goRight:
@@ -75,6 +78,13 @@ func _on_walk_Stop():
 	goRight = false
 	goLeft = false 
 	print("para")
+	
+func _on_Jump():
+	print("And I heard as if it ")
+	if canJump:
+		print("FFFFFFFFF")
+		motion.y = jumpSpeed
+		canJump = false
 	
 func animation():
 	if motion.x == 0 && motion.y == 0 && !crouching:

@@ -1,14 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/UI/OuterJoystick.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/UI/Inner Joystick.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Instances/InnerJoystick.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/UI/OuterJoystick Shoot.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Inner Joystick Shoot (6).png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Instances/InnerJoystickShoot.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/UI/Update Bolt and Action Rifle clone.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Instances/Sprite.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 0.01
 
 [node name="Interface" type="Control"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 0.18
@@ -21,6 +30,7 @@ margin_bottom = 640.0
 margin_right = 1040.0
 
 [node name="OuterJoystickSprite" type="Sprite" parent="CanvasLayer/VBoxContainer"]
+editor/display_folded = true
 position = Vector2( 38.1405, 575.913 )
 scale = Vector2( 3.57, 3.31 )
 texture = ExtResource( 1 )
@@ -31,3 +41,21 @@ scale = Vector2( 0.93, 1.03 )
 normal = ExtResource( 2 )
 shape = SubResource( 1 )
 script = ExtResource( 3 )
+
+[node name="OuterJoystickShoot" type="Sprite" parent="CanvasLayer/VBoxContainer"]
+position = Vector2( 685.189, 431.539 )
+scale = Vector2( 3.57, 3.31 )
+texture = ExtResource( 4 )
+
+[node name="InnerJoystickShoot" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer/OuterJoystickShoot"]
+position = Vector2( -34.3508, -37.566 )
+scale = Vector2( 0.93, 1.03 )
+normal = ExtResource( 5 )
+shape = SubResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( 471.206, 338.242 )
+scale = Vector2( 4.25538, 4.42743 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
