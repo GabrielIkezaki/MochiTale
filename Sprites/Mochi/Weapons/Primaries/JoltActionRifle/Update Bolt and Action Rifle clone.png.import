@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Update Bolt and Action Rifle clone.png-23bc694e72c3d4f46a9c48a4825011dd.stex"
+path="res://.import/Update Bolt and Action Rifle clone.png-90f12f5c2e04f9661a079e05e9b7cfec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Update Bolt and Action Rifle clone.png"
-dest_files=[ "res://.import/Update Bolt and Action Rifle clone.png-23bc694e72c3d4f46a9c48a4825011dd.stex" ]
+source_file="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png"
+dest_files=[ "res://.import/Update Bolt and Action Rifle clone.png-90f12f5c2e04f9661a079e05e9b7cfec.stex" ]
 
 [params]
 

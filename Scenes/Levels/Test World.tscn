@@ -1,19 +1,21 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Levels/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/MochiSprites10.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Mochi/MochiSprites02.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/Instances/Interface.tscn" type="PackedScene" id=13]
-[ext_resource path="res://icon.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Levels/PrimaryWeapon.gd" type="Script" id=14]
+[ext_resource path="res://icon.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Instances/Interface.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -24,34 +26,42 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Bite",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Duck",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 6.81962 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32.081, 31.7773 )
 
 [node name="Test World" type="Node2D"]
@@ -67,18 +77,28 @@ animation = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
-[node name="Interface" parent="." instance=ExtResource( 13 )]
+[node name="PrimaryWeapon" type="AnimatedSprite" parent="Player"]
+position = Vector2( 2.06232, -0.349115 )
+z_index = 4
+frames = SubResource( 3 )
+animation = "Idle"
+script = ExtResource( 14 )
 
 [node name="Test Ground" type="StaticBody2D" parent="."]
 position = Vector2( -2.05054, 203.004 )
 scale = Vector2( 19.8133, 1.55433 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Ground"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Test Ground"]
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
+
+[node name="Interface" parent="." instance=ExtResource( 16 )]

@@ -65,8 +65,9 @@ func converttoAnlge():
 	var tempangle = atan2(get_button_pos().y, get_button_pos().x)
 	var angle = rad2deg(tempangle)
 	
-	gun.setRotation(angle)
 	print(angle)
+	#gun.setRotation(angle)
+	return angle
 
 #The event defines the input
 func _input(event):

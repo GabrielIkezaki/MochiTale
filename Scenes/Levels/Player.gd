@@ -4,12 +4,16 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+var ShootStick
+
 var motion = Vector2 (0,0)
 var goRight = false
 var goLeft = false 
 var stopMove = false
 var crouching = false 
 var canJump = true
+
+var interface
 
 const hboxScale = Vector2(1,1)
 const gravity = 10 
@@ -19,7 +23,9 @@ const jumpSpeed = -400
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	interface = load("res://Scenes/Instances/Interface.tscn")
 	var Joystick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickSprite/InnerJoystick")
+	ShootStick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickShoot/InnerJoystickShoot")
 	#Joystick.connect("walkRight", self, "_on_walk_Right")
 	pass # Replace with function body.
 
@@ -31,6 +37,8 @@ func _physics_process(delta):
 func movement():
 	
 	motion.y += gravity	
+	
+	rotateWeapon()
 	
 	if crouching:
 		$CollisionShape2D
@@ -99,6 +107,11 @@ func animation():
 		
 	if crouching:
 		$PlayerSprite.play("Duck")
+
+func rotateWeapon():
+	$PrimaryWeapon._setRotation(ShootStick.converttoAnlge())
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
