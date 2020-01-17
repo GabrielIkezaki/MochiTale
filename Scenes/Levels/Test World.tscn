@@ -1,52 +1,53 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Levels/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Mochi/MochiSprites10.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Mochi/MochiSprites02.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Mochi/MochiSprites02.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Mochi/MochiSprites03.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Mochi/MochiSprites04.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mochi/MochiSprites05.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mochi/MochiSprites06.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mochi/MochiSprites07.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mochi/MochiSprites08.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Mochi/MochiSprites09.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Mochi/MochiSprites10.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Mochi/MochiSprites01.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Mochi/MochiSprites00.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Levels/PrimaryWeapon.gd" type="Script" id=14]
 [ext_resource path="res://icon.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Instances/Interface.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Levels/Target.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Bite",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Move",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "Duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -63,6 +64,12 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32.081, 31.7773 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 26.9954, 28.8706 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 68.048, 63.3154 )
 
 [node name="Test World" type="Node2D"]
 
@@ -81,7 +88,6 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="PrimaryWeapon" type="AnimatedSprite" parent="Player"]
@@ -92,6 +98,7 @@ animation = "Idle"
 script = ExtResource( 14 )
 
 [node name="Test Ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -2.05054, 203.004 )
 scale = Vector2( 19.8133, 1.55433 )
 
@@ -102,3 +109,28 @@ shape = SubResource( 4 )
 texture = ExtResource( 15 )
 
 [node name="Interface" parent="." instance=ExtResource( 16 )]
+
+[node name="Target" type="StaticBody2D" parent="." groups=[
+"Enemies",
+]]
+position = Vector2( 262.83, 70.1133 )
+collision_layer = 4
+collision_mask = 13
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2( 0, 0.291985 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Target"]
+scale = Vector2( 2.36, 2.04 )
+texture = ExtResource( 15 )
+
+[node name="EnemyCollisionArea" type="Area2D" parent="Target"]
+collision_layer = 4
+collision_mask = 9
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Target/EnemyCollisionArea"]
+shape = SubResource( 6 )
+[connection signal="area_entered" from="Target/EnemyCollisionArea" to="Target" method="_on_EnemyCollisionArea_area_entered"]
+[connection signal="body_entered" from="Target/EnemyCollisionArea" to="Target" method="_on_EnemyCollisionArea_body_entered"]

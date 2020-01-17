@@ -13,6 +13,7 @@ var stopMove = false
 var crouching = false 
 var canJump = true
 
+
 var interface
 
 const hboxScale = Vector2(1,1)
@@ -21,8 +22,11 @@ const UP = Vector2(0, -1)
 const speed = 500
 const jumpSpeed = -400
 
+
+signal getHit
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	interface = load("res://Scenes/Instances/Interface.tscn")
 	var Joystick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickSprite/InnerJoystick")
 	ShootStick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickShoot/InnerJoystickShoot")
@@ -32,6 +36,7 @@ func _ready():
 func _physics_process(delta):
 	movement()
 	animation()
+
 	pass
 
 func movement():
@@ -62,6 +67,8 @@ func movement():
 	motion = move_and_slide(motion, UP) 
 	pass
 
+
+
 func _on_Crouch():
 	crouching = true
 	print("ducking")
@@ -85,12 +92,12 @@ func _on_walk_Stop():
 	stopMove = true
 	goRight = false
 	goLeft = false 
-	print("para")
+	#print("para")
 	
 func _on_Jump():
-	print("And I heard as if it ")
+	#print("And I heard as if it ")
 	if canJump:
-		print("FFFFFFFFF")
+	#	print("FFFFFFFFF")
 		motion.y = jumpSpeed
 		canJump = false
 	
