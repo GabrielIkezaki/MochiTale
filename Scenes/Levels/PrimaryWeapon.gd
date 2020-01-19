@@ -1,5 +1,8 @@
 extends AnimatedSprite
 
+var bullet = preload("res://Scenes/Instances/Bullet.tscn")
+onready var screenShaker = get_node("../Camera2D/ScreenShaker")
+#export(NodePath) var screenShaker
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,6 +15,23 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		print("shoot")
+		var tempBullet = bullet.instance() 
+		stop()
+		play("Idle")
+		play("Shoot")
+		
+		get_parent().get_parent().add_child(tempBullet)
+
+		
+		tempBullet.position = $PrimaryWeaponPos.global_position
+
+
+		tempBullet.rotation_degrees = rotation_degrees
+		
+		tempBullet.instantiatedBullet(rotation_degrees + 90, $PrimaryWeaponPos.global_position.x, $PrimaryWeaponPos.global_position.y)
+		screenShaker.start()
 		
 	pass
 

@@ -1,7 +1,13 @@
 extends KinematicBody2D
 
-const speed = 700
+var isFlying = false
+const speed = 8700
 var motion = Vector2(0,0)
+var dirAngle
+var xinitialPoint
+var yinitialPoint
+var movingTrack = Vector2(0,0)
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,7 +21,20 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	Shoot(90, 650.851, 334.256)
+	
+	if isFlying:
+		Shoot(dirAngle, xinitialPoint, yinitialPoint)
+	
+	#Shoot(90, 90.693, 358.738)
+	pass
+
+func instantiatedBullet(var angle, var xstartingPoint, var ystartingPoint):
+	dirAngle = angle 
+	xinitialPoint = xstartingPoint
+	yinitialPoint = ystartingPoint
+	
+	isFlying = true	
+	
 
 
 func Shoot(var angle, var xstartingPoint, var ystartingPoint):
@@ -29,9 +48,13 @@ func Shoot(var angle, var xstartingPoint, var ystartingPoint):
 	var moveDirection = (startingPoint - tempDirection).normalized()*speed
 	
 	motion = Vector2(-moveDirection.x, moveDirection.y)
+	movingTrack = motion
 	
 	motion = move_and_slide(motion)
 
+
+func returnDirection():
+	return movingTrack
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

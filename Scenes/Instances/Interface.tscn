@@ -40,7 +40,7 @@ shape = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="OuterJoystickShoot" type="Sprite" parent="CanvasLayer/VBoxContainer"]
-position = Vector2( 1094.58, 592.496 )
+position = Vector2( 1231.57, 578.797 )
 scale = Vector2( 3.57, 3.31 )
 texture = ExtResource( 4 )
 

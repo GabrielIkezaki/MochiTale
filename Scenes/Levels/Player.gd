@@ -17,10 +17,10 @@ var canJump = true
 var interface
 
 const hboxScale = Vector2(1,1)
-const gravity = 10 
+const gravity = 30 
 const UP = Vector2(0, -1)
-const speed = 500
-const jumpSpeed = -400
+const speed = 1000
+const jumpSpeed = -700
 
 
 signal getHit
@@ -28,8 +28,8 @@ signal getHit
 func _ready():
 
 	interface = load("res://Scenes/Instances/Interface.tscn")
-	var Joystick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickSprite/InnerJoystick")
-	ShootStick = get_node("/root/Test World/Interface/CanvasLayer/VBoxContainer/OuterJoystickShoot/InnerJoystickShoot")
+	var Joystick = get_node("../Interface/CanvasLayer/VBoxContainer/OuterJoystickSprite/InnerJoystick")
+	ShootStick = get_node("../Interface/CanvasLayer/VBoxContainer/OuterJoystickShoot/InnerJoystickShoot")
 	#Joystick.connect("walkRight", self, "_on_walk_Right")
 	pass # Replace with function body.
 
