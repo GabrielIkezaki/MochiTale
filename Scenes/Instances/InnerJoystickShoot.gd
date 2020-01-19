@@ -5,7 +5,7 @@ var radius = Vector2(34, 38)
 var bound = 32 
 var initialPos = Vector2(0,0)
 
-var gun
+var primaryWeapon
 
 signal walkRight
 signal walkLeft
@@ -19,12 +19,16 @@ var parentPos = Vector2(0,0)
 var return_accel = 20
 var keepDrag = -1
 
+var isPressed = false 
+
 func _ready():
 	#initialPos = get_parent().global_position()
 	
 	#In this line, we'll be specifying what the player is, by giving the directory to the Player game object
 	var player = get_node("/root/Test World/Player")
-	gun = get_node("/root/Interface/Gun") 
+	#primaryWeapon = get_tree().has_group("PrimaryWeapon")
+#	primaryWeapon = get_tree().get_nodes_in_group("PrimaryWeapon")
+	#gun = get_node("/root/Interface/Gun") 
 	
 func _process(delta):
 	
@@ -34,28 +38,12 @@ func _process(delta):
 	if keepDrag == -1:
 		var pos_difference = (Vector2(0,0) - radius) - position
 		position += pos_difference 
+		#print("RELEASE")
+		isPressed = false
+		get_tree().call_group("PrimaryWeapon", "_inputReleasing")
+	#	primaryWeapon.call_group("PrimaryWeapon", "_inputRelease")
 	
 	
-#
-#	if get_button_pos().x > initialPos.x + 7:
-#		emit_signal("walkRight")
-#		#print("right")
-#	elif get_button_pos().x < initialPos.x - 7 :
-#		#print("left")
-#		emit_signal("walkLeft")
-#	elif get_button_pos().x < initialPos.x + 7 && get_button_pos().x > initialPos.x - 7 :
-#		emit_signal("stopWalk")
-#
-#	if get_button_pos().y < initialPos.y -20:
-#		emit_signal("jump")
-#		print("PULO")
-#
-#	if get_button_pos().y > initialPos.y + 20:
-#		emit_signal("crouch")
-#	elif get_button_pos().y > initialPos.y -20 && get_button_pos().y < initialPos.y + 20:
-#		emit_signal("stand")
-#
-
 
 #Returns Joystick position + the radius, which will be used to cetnralize 
 func get_button_pos():
@@ -69,6 +57,10 @@ func converttoAnlge():
 	#gun.setRotation(angle)
 	return angle
 
+
+func returnInput():
+	return isPressed
+
 #The event defines the input
 func _input(event):
 	
@@ -79,6 +71,9 @@ func _input(event):
 		if event_dist_from_center <= bound * global_scale.x or event.get_index() == keepDrag:
 			#centralizing. The global_scale make sure that the radius changes relative to the size of the joystick 
 			set_global_position(event.position - radius * global_scale)
+			print("PRESSING")
+			isPressed = true
+			get_tree().call_group("PrimaryWeapon", "_inputPressing")
 		
 			if get_button_pos().length() > bound:
 				set_position(get_button_pos().normalized()*bound - radius)
@@ -88,6 +83,8 @@ func _input(event):
 	
 	if event is InputEventScreenTouch and !event.is_pressed() and event.get_index() == keepDrag:
 		keepDrag = -1 
+		print("RELEASE")
 		#set_global_position(initialPos)
+		
 
 

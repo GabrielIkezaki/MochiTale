@@ -27,7 +27,6 @@ margin_bottom = 640.0
 margin_right = 1040.0
 
 [node name="OuterJoystickSprite" type="Sprite" parent="CanvasLayer/VBoxContainer"]
-editor/display_folded = true
 position = Vector2( 38.1405, 575.913 )
 scale = Vector2( 3.57, 3.31 )
 texture = ExtResource( 1 )
