@@ -17,8 +17,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	if isPressing == false:
-		opperateWeapon(0.5)
+#	if isPressing == false:
+#		opperateWeapon(0.5)
 	pass
 func _setRotation(var degNum):
 	rotation_degrees = degNum
@@ -48,11 +48,11 @@ func _shootBullet():
 
 func _inputReleasing():
 	isPressing = false
-	print(isPressing)
+	#print(isPressing)
 	
 func _inputPressing():
 	isPressing = true
-	print(isPressing)
+	#print(isPressing)
 	
 
 func flipSprite(var playerSprite):

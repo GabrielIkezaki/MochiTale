@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PWeapon.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/sprite_1.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 5.0
+} ]
+
+[node name="PWeapon" type="Node2D" groups=[
+"PrimaryWeapon",
+]]
+script = ExtResource( 1 )
+fireRate = 1.2
+deviation = 1.0
+magazineSize = 5
+totalAmmo = 15
+
+[node name="PWeapon_sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.575249, 0.241241 )
+z_index = 7
+frames = SubResource( 1 )
+animation = "shoot"
+speed_scale = 7.0
+
+[node name="Shoot_pos" type="Position2D" parent="PWeapon_sprite"]
+position = Vector2( 9.61546, -0.282807 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

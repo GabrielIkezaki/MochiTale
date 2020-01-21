@@ -71,7 +71,7 @@ func _input(event):
 		if event_dist_from_center <= bound * global_scale.x or event.get_index() == keepDrag:
 			#centralizing. The global_scale make sure that the radius changes relative to the size of the joystick 
 			set_global_position(event.position - radius * global_scale)
-			print("PRESSING")
+			#print("PRESSING")
 			isPressed = true
 			get_tree().call_group("PrimaryWeapon", "_inputPressing")
 		
@@ -83,7 +83,7 @@ func _input(event):
 	
 	if event is InputEventScreenTouch and !event.is_pressed() and event.get_index() == keepDrag:
 		keepDrag = -1 
-		print("RELEASE")
+		#print("RELEASE")
 		#set_global_position(initialPos)
 		
 

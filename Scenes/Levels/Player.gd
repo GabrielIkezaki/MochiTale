@@ -116,7 +116,7 @@ func animation():
 		$PlayerSprite.play("Duck")
 
 func rotateWeapon():
-	$PrimaryWeapon._setRotation(ShootStick.converttoAnlge())
+	$PWeapon._setRotation(ShootStick.converttoAnlge())
 	
 	
 
