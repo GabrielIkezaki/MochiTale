@@ -3,11 +3,14 @@ extends Node
 var isPressing = false
 var deviateAngle
 var bulletNum
+var startTimer = false 
+var resetTimer = false 
 
 var bullet = preload("res://Scenes/Instances/Bullet.tscn")
 onready var screenShaker = get_node("../Camera2D/ScreenShaker")
 onready var sprite = $PWeapon_sprite
 
+export(int) var bulletpershot = 0
 export(float) var fireRate = 0 
 export(float) var deviation = 0
 export(int) var magazineSize = 0
@@ -29,8 +32,18 @@ func _ready():
 
 func _process(delta):
 	
-	if isPressing == false:
+	if startTimer && resetTimer:
 		opperateWeapon(fireRate)
+		resetTimer = false
+	
+	if isPressing == true:
+		if !startTimer:
+			startTimer = true
+			resetTimer = true
+	elif isPressing == false:
+		startTimer = false
+		$FireTimer.stop()
+		#opperateWeapon(fireRate)
 	pass
 func _setRotation(var degNum):
 	sprite.rotation_degrees = degNum
@@ -49,24 +62,26 @@ func _reload():
 
 func _shootBullet():
 	print("shoot")
-	var tempBullet = bullet.instance() 
+	
 	sprite.stop()
 	sprite.play("Idle")
 	sprite.play("shoot")
 	
-	deviateAngle = rand_range(-deviation, deviation)
-	
-	get_parent().get_parent().add_child(tempBullet)
-	
-	tempBullet.position = $PWeapon_sprite/Shoot_pos.global_position
 
-
-	tempBullet.rotation_degrees = sprite.rotation_degrees
 	
-	tempBullet.instantiatedBullet((sprite.rotation_degrees + 90) + deviateAngle, $PWeapon_sprite/Shoot_pos.global_position.x, $PWeapon_sprite/Shoot_pos.global_position.y)
+	
+	for i in range(0, bulletpershot):
+		var tempBullet = bullet.instance() 
+		get_parent().get_parent().add_child(tempBullet)
+	
+		tempBullet.position = $PWeapon_sprite/Shoot_pos.global_position
+		tempBullet.rotation_degrees = sprite.rotation_degrees
+		deviateAngle = rand_range(-deviation, deviation)
+		tempBullet.instantiatedBullet((sprite.rotation_degrees + 90) + deviateAngle, $PWeapon_sprite/Shoot_pos.global_position.x, $PWeapon_sprite/Shoot_pos.global_position.y)
+	
 	screenShaker.start()
 	
-	bulletNum -= 1
+	bulletNum -= bulletpershot
 
 func _inputReleasing():
 	isPressing = false
@@ -102,4 +117,5 @@ func flipSprite(var playerSprite):
 func _on_FireTimer_timeout():
 	if bulletNum > 0:
 		_shootBullet()
+		resetTimer = true 
 	pass # Replace with function body.

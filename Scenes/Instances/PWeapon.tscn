@@ -20,8 +20,10 @@ animations = [ {
 [node name="PWeapon" type="Node2D" groups=[
 "PrimaryWeapon",
 ]]
+scale = Vector2( 0.986217, 1.36275 )
 script = ExtResource( 1 )
-fireRate = 1.2
+bulletpershot = 1
+fireRate = 1.0
 deviation = 1.0
 magazineSize = 5
 totalAmmo = 15
