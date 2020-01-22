@@ -15,7 +15,8 @@ export(float) var fireRate = 0
 export(float) var deviation = 0
 export(int) var magazineSize = 0
 export(int) var totalAmmo = 0
-
+export(String) var idleanim = "."
+export(String) var shootanim = "."
 
 #export(NodePath) var screenShaker
 # Declare member variables here. Examples:
@@ -64,8 +65,8 @@ func _shootBullet():
 	print("shoot")
 	
 	sprite.stop()
-	sprite.play("Idle")
-	sprite.play("shoot")
+	sprite.play(idleanim)
+	sprite.play(shootanim)
 	
 
 	

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/Base/PWeapon.tscn" type="PackedScene" id=1]
+
+[node name="Minigun" index="0" instance=ExtResource( 1 )]
+bulletpershot = 2
+fireRate = 0.1
+deviation = 10.0
+magazineSize = 300
+idleanim = "minigun_idle"
+shootanim = "minigun_shoot"
+
+[node name="PWeapon_sprite" parent="." index="0"]
+animation = "minigun_idle"
