@@ -9,6 +9,11 @@ deviation = 10.0
 magazineSize = 300
 idleanim = "minigun_idle"
 shootanim = "minigun_shoot"
+flipshootPos = Vector2( 4.403, -4.452 )
+normalshootPos = Vector2( 4.403, 5.871 )
 
 [node name="PWeapon_sprite" parent="." index="0"]
 animation = "minigun_idle"
+
+[node name="Shoot_pos" parent="PWeapon_sprite" index="0"]
+position = Vector2( 5.08883, 5.87125 )

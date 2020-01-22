@@ -3,10 +3,10 @@
 [ext_resource path="res://PWeapon.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/sprite_1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_2.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,14 +20,14 @@ animations = [ {
 "name": "shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "minigun_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "minigun_shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "minigun_idle",
 "speed": 5.0
 } ]
 
@@ -43,6 +43,8 @@ magazineSize = 5
 totalAmmo = 15
 idleanim = "idle"
 shootanim = "shoot"
+flipshootPos = Vector2( 9.615, -0.283 )
+normalshootPos = Vector2( 9.615, -0.283 )
 
 [node name="PWeapon_sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.575249, 0.241241 )

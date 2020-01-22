@@ -17,7 +17,8 @@ export(int) var magazineSize = 0
 export(int) var totalAmmo = 0
 export(String) var idleanim = "."
 export(String) var shootanim = "."
-
+export(Vector2) var flipshootPos
+export(Vector2) var normalshootPos
 #export(NodePath) var screenShaker
 # Declare member variables here. Examples:
 # var a = 2
@@ -43,6 +44,7 @@ func _process(delta):
 			resetTimer = true
 	elif isPressing == false:
 		startTimer = false
+		sprite.play(idleanim)
 		$FireTimer.stop()
 		#opperateWeapon(fireRate)
 	pass
@@ -99,9 +101,11 @@ func flipSprite(var playerSprite):
 	if sprite.rotation_degrees < -90 and sprite.rotation_degrees != 0 or sprite.rotation_degrees > 90 and sprite.rotation_degrees != 0:
 		sprite.flip_v = true
 		sprite.flip_h = false 
+		$PWeapon_sprite/Shoot_pos.position = flipshootPos
 	else:
 		sprite.flip_v = false
 		sprite.flip_h = false
+		$PWeapon_sprite/Shoot_pos.position = normalshootPos
 		
 	if sprite.rotation_degrees == 0:
 		if playerSprite.flip_h == false:
