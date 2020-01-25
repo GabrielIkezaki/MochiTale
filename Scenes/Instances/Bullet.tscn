@@ -39,3 +39,7 @@ gradient = SubResource( 3 )
 texture_mode = 1055700914
 targetPath = NodePath("..")
 trailLength = 50
+
+[node name="SD_Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="SD_Timer" to="." method="_on_SD_Timer_timeout"]

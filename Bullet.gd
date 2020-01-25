@@ -22,6 +22,8 @@ func _ready():
 
 func _process(delta):
 	
+	$SD_Timer.start()
+	
 	if isFlying:
 		Shoot(dirAngle, xinitialPoint, yinitialPoint)
 	
@@ -59,3 +61,9 @@ func returnDirection():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_SD_Timer_timeout():
+	print("ARROYO")
+	queue_free()
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://PWeapon.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_3.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_0.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_1.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,6 +31,16 @@ animations = [ {
 "loop": true,
 "name": "minigun_idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "m16_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "m16_shoot",
+"speed": 5.0
 } ]
 
 [node name="PWeapon" type="Node2D" groups=[
@@ -50,7 +62,7 @@ normalshootPos = Vector2( 9.615, -0.283 )
 position = Vector2( 0.575249, 0.241241 )
 z_index = 7
 frames = SubResource( 1 )
-animation = "idle"
+animation = "m16_shoot"
 speed_scale = 7.0
 
 [node name="Shoot_pos" type="Position2D" parent="PWeapon_sprite"]
