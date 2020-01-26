@@ -5,6 +5,7 @@ var deviateAngle
 var bulletNum
 var startTimer = false 
 var resetTimer = false 
+var xinitPos
 
 var bullet = preload("res://Scenes/Instances/Bullet.tscn")
 onready var screenShaker = get_node("../Camera2D/ScreenShaker")
@@ -19,6 +20,7 @@ export(String) var idleanim = "."
 export(String) var shootanim = "."
 export(Vector2) var flipshootPos
 export(Vector2) var normalshootPos
+export(float) var xflipPos = 0
 #export(NodePath) var screenShaker
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,6 +30,7 @@ var playerSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	xinitPos = self.position.x
 	bulletNum = magazineSize
 	playerSprite = get_node("../").get_child(0)
 	pass # Replace with function body.
@@ -102,16 +105,20 @@ func flipSprite(var playerSprite):
 		sprite.flip_v = true
 		sprite.flip_h = false 
 		$PWeapon_sprite/Shoot_pos.position = flipshootPos
+		self.position = Vector2(xinitPos + xflipPos, self.position.y)
 	else:
 		sprite.flip_v = false
 		sprite.flip_h = false
 		$PWeapon_sprite/Shoot_pos.position = normalshootPos
+		self.position = Vector2(xinitPos, self.position.y)
 		
 	if sprite.rotation_degrees == 0:
 		if playerSprite.flip_h == false:
 			sprite.flip_h = false
+			self.position = Vector2(xinitPos, self.position.y)
 		elif playerSprite.flip_h == true:
 			sprite.flip_h = true 
+			self.position = Vector2(xinitPos + xflipPos, self.position.y)
 
  
 

@@ -4,13 +4,14 @@
 
 [node name="M16" instance=ExtResource( 1 )]
 position = Vector2( -0.315552, 0 )
-scale = Vector2( 1.33076, 1.34449 )
+scale = Vector2( 1.05076, 1.02449 )
 fireRate = 0.16
 deviation = 1.5
 magazineSize = 25
 totalAmmo = 45
 idleanim = "m16_idle"
 shootanim = "m16_shoot"
+xflipPos = -5.0
 
 [node name="PWeapon_sprite" parent="." index="0"]
 position = Vector2( -0.0844087, 0.233877 )
