@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://PWeapon.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_0.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_1.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_0.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,11 +29,6 @@ animations = [ {
 "name": "minigun_shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "minigun_idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "m16_idle",
@@ -40,6 +37,26 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "m16_shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "minigun_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "dbarrel_shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "dbarrel_idle",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
 "speed": 5.0
 } ]
 
@@ -59,10 +76,10 @@ flipshootPos = Vector2( 9.615, -0.283 )
 normalshootPos = Vector2( 9.615, -0.283 )
 
 [node name="PWeapon_sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.575249, 0.241241 )
+position = Vector2( 0.0700407, -0.124379 )
 z_index = 7
 frames = SubResource( 1 )
-animation = "m16_shoot"
+animation = "dbarrel_shoot"
 speed_scale = 7.0
 
 [node name="Shoot_pos" type="Position2D" parent="PWeapon_sprite"]

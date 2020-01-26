@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scenes/Instances/Weapons/Primaries/Base/PWeapon.tscn" type="PackedScene" id=1]
 
-[node name="M16" index="0" instance=ExtResource( 1 )]
+[node name="M16" instance=ExtResource( 1 )]
 position = Vector2( -0.315552, 0 )
 scale = Vector2( 1.33076, 1.34449 )
-fireRate = 0.18
+fireRate = 0.16
 deviation = 1.5
 magazineSize = 25
 totalAmmo = 45
