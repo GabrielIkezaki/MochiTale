@@ -5,6 +5,7 @@ extends KinematicBody2D
 # var b = "text"
 
 var ShootStick
+var primaryWeapon
 
 var motion = Vector2 (0,0)
 var goRight = false
@@ -26,7 +27,7 @@ const jumpSpeed = -700
 signal getHit
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	primaryWeapon = get_child(1)
 	interface = load("res://Scenes/Instances/Interface.tscn")
 	var Joystick = get_node("../Interface/CanvasLayer/VBoxContainer/OuterJoystickSprite/InnerJoystick")
 	ShootStick = get_node("../Interface/CanvasLayer/VBoxContainer/OuterJoystickShoot/InnerJoystickShoot")
@@ -116,7 +117,7 @@ func animation():
 		$PlayerSprite.play("Duck")
 
 func rotateWeapon():
-	$M16._setRotation(ShootStick.converttoAnlge())
+	primaryWeapon._setRotation(ShootStick.converttoAnlge())
 	
 	
 	

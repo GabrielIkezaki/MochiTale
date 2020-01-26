@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Instances/Weapons/Primaries/Base/PWeapon.tscn" type="PackedScene" id=1]
 
 [node name="DoubleBarrel" instance=ExtResource( 1 )]
-position = Vector2( 0, -0.340575 )
+position = Vector2( 4.38584, -0.925353 )
 bulletpershot = 10
 fireRate = 0.75
 deviation = 20.0
@@ -13,5 +13,5 @@ idleanim = "dbarrel_idle"
 shootanim = "dbarrel_shoot"
 
 [node name="PWeapon_sprite" parent="." index="0"]
-position = Vector2( -0.113701, -0.0805976 )
+position = Vector2( -4.26436, 0.884915 )
 speed_scale = 5.0

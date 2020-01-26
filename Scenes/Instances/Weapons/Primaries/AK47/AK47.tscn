@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/Base/PWeapon.tscn" type="PackedScene" id=1]
+
+[node name="AK47" instance=ExtResource( 1 )]
+scale = Vector2( 0.986217, 1.20275 )
+fireRate = 0.1
+deviation = 2.3
+magazineSize = 25
+idleanim = "ak_idle"
+shootanim = "ak_shoot"
+xflipPos = -3.5
+
+[node name="PWeapon_sprite" parent="." index="0"]
+position = Vector2( 1.75407, -1.21285 )
+scale = Vector2( 1.20279, 1.2328 )
+animation = "ak_idle"

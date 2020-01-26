@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://PWeapon.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/Update Bolt and Action Rifle clone.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/sprite_1.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_0.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_1.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_0.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/AK47/ak_0.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/AK47/ak_1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/JoltActionRifle/sprite_1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_0.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_0.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_1.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Mochi/Weapons/Primaries/Minigun/sprite_3.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_1.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/M16/m16_1.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_0.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Instances/Weapons/Primaries/DoubleBarrel/dbarrel_1.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,44 +21,49 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "ak_shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "m16_shoot",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "dbarrel_idle",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "New Anim",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "minigun_idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "m16_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "minigun_shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "m16_shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "dbarrel_shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "m16_idle",
+"name": "dbarrel_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "ak_idle",
 "speed": 5.0
 } ]
 
@@ -79,7 +86,7 @@ normalshootPos = Vector2( 9.615, -0.283 )
 position = Vector2( 0.238438, -0.246253 )
 z_index = 7
 frames = SubResource( 1 )
-animation = "dbarrel_shoot"
+animation = "ak_shoot"
 speed_scale = 7.0
 
 [node name="Shoot_pos" type="Position2D" parent="PWeapon_sprite"]
