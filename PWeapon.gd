@@ -57,7 +57,7 @@ func _setRotation(var degNum):
 	#print("NEW WEAPPPPOOOOOOOON")
 func opperateWeapon(var waitTime, var one = 1):
 	
-	print("timer STARTED")
+	#print("timer STARTED")
 	$FireTimer.wait_time = waitTime
 	$FireTimer.start()
 
@@ -67,7 +67,7 @@ func _reload():
 		totalAmmo -= (magazineSize - bulletNum)
 
 func _shootBullet():
-	print("shoot")
+	#print("shoot")
 	
 	sprite.stop()
 	sprite.play(idleanim)
@@ -91,12 +91,12 @@ func _shootBullet():
 
 func _inputReleasing():
 	isPressing = false
-	print(isPressing)
+	#print(isPressing)
 	#print("RELEASED SIGNAL")
 	
 func _inputPressing():
 	isPressing = true
-	print(isPressing)
+	#print(isPressing)
 	#print("PRESSED SIGNAL")
 
 

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var isFlying = false
-const speed = 8700
+const speed = 5000
 var motion = Vector2(0,0)
 var dirAngle
 var xinitialPoint
@@ -66,4 +66,16 @@ func returnDirection():
 func _on_SD_Timer_timeout():
 	print("ARROYO")
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_BulletCollisionArea_area_entered(area):
+	if area.is_in_group("Enemies"):
+		print("HIT ENEMY")
+	pass # Replace with function body.
+
+
+func _on_BulletCollisionArea_body_entered(body):
+	if body.is_in_group("Enemies"):
+		print("HIT ENEMY")
 	pass # Replace with function body.

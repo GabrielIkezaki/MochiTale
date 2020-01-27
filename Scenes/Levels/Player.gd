@@ -72,7 +72,7 @@ func movement():
 
 func _on_Crouch():
 	crouching = true
-	print("ducking")
+	#print("ducking")
 
 func _on_Stand():
 	crouching = false
@@ -81,13 +81,13 @@ func _on_walk_Right():
 	goRight = true
 	goLeft = false
 	stopMove = false
-	print("frente")
+	#print("frente")
 	
 func _on_walk_Left():
 	goLeft = true
 	goRight = false
 	stopMove = false
-	print("tras")
+	#print("tras")
 
 func _on_walk_Stop():
 	stopMove = true
